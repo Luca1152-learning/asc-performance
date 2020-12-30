@@ -1,3 +1,5 @@
-from src.asc_performance.scripts.get_links import get_links
+from src.asc_performance.scripts.get_data import get_data
+from src.asc_performance.scripts.get_urls import get_urls
 
-links = get_links()
+urls = get_urls()
+data = get_data(urls)
