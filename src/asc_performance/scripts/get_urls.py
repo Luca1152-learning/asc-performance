@@ -16,11 +16,13 @@ def _get_individual_lists_urls(page_content: str) -> List[str]:
     year_month_pattern = r'(?<=<a href=")[0-9]{4}/[0-9]{2}(?=">)'
     matches = re.findall(year_month_pattern, page_content)
 
-    # Append the MAIN_LISTS_PAGE_URL to all "[year]/[month]" matches to create urls
+    # Append the MAIN_LISTS_PAGE_URL to all "[year]/[month]" matches to create URLs
     urls = [MAIN_LISTS_PAGE_URL + match for match in matches]
 
     return urls
 
 
 def get_urls() -> List[str]:
+    """Returns a list of URLs corresponding to top500.org performance tops by year."""
+
     return _get_individual_lists_urls(_get_main_lists_page_content())

@@ -2,6 +2,8 @@ from typing import List, Tuple
 
 
 def get_average_improvement(data: List[Tuple[str, float]]) -> float:
+    """Return the average percentage of computer performance improvement per year."""
+
     improvements_per_year = []
     for index, performance_data in enumerate(data[:-1]):
         # Current year's data

@@ -15,7 +15,7 @@ def _get_year_performance_data(url: str) -> float:
     # Iterate through the first 4 rows of the table with performance data
     data_table = soup.find('table', {'class': 'table table-condensed table-striped'})
 
-    # The "November 1995" page shows the message "Page not found!"
+    # The "November 1995" page shows the message "Page not found!", so such cases must be handled
     if not data_table:
         raise ValueError(f"Couldn't parse the {url} url.")
 
@@ -37,6 +37,8 @@ def _get_year_performance_data(url: str) -> float:
 
 
 def get_data(urls: List[str]) -> List[Tuple[str, float]]:
+    """Returns a list of (date, average of top 3 Rmax in TFlop/s) tuples for each top500.org data set."""
+
     performance_data = []
     for url in urls:
         try:

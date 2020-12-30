@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 
 
 def show_graph(data: List[Tuple[str, float]]):
+    """Displays a graph with the top 3 computers' average performance by year."""
+
     year_month_list, rmax_list = zip(*data)
 
     # Store the axes' data accordingly
